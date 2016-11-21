@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/jquery.js"></script>
+	<link type="text/css" href="css/lb.tables.css" rel="stylesheet" />
+	<script src="js/lb.tables.js"></script>
+	<script src="js/lb.tables.event.js"></script>
+	<style type="text/css">
+		#demo1,.demo2{ margin: 10px; }
+	</style>
+</head>
+<body>
+	<div class="options">
+		<button id="reloadBtn">reolad</button>
+		<button id="search">search</button>
+		<button id="save">save</button>
+		<button id="setHide">setHide</button>
+	</div>
+	<div id="demo1" class="lb-tables-warp">
+	</div>
+	<div class="demo2"></div>
+	<script type="text/javascript">
+		$(function(){
+			var col = [
+				{
+					"title":"全选",
+					"width":"120",
+					"rowspan":true,
+					"align":"center",
+					"format":function(val,item){
+						return '<input type="checkbox">'
+					}
+				},{
+					"title":"物品编号",//列标题 如果已有表格存在不需要此项
+					"width":"120",//每列的宽度不包含操作列和序号列  如果已有表格存在不需要此项
+					"align":"left",//对齐方式 left center right
+					"rowspan":true, //这列是否存在合并，
+					"format":function(val,item){
+						return '<span>'+val+'</span>'
+					}
+				},{
+					"title":"物料名称",
+					"width":"500",
+					"align":"center",
+					"class":"red",//td上添加的class
+					"format":function(val,item){
+						if(val == ''){
+							return '<input type="text" class="table-text" value="'+val+'"/>';
+						}else{
+							return val+' <span class="bq">终止</span>';
+						}
+					}
+				},{
+					"title":"规格型号",
+					"width":"200",
+					"align":"left",
+					"rowspan":true,
+					"format":function(val,item){
+						return '<input type="text" class="table-text" placeholder="请输入" value="'+val+'"/>';
+					}
+				},{
+					"title":"品质描述",
+					"width":"200",
+					"all":true,
+					"align":"left",
+					"rowspan":true,
+				},{
+					"title":"质量标准",
+					"width":"200",
+					"align":"left"
+				},{
+					"title":"包装规格",
+					"width":"200",
+					"align":"left",
+					"class":"lb-sort string"
+				},{
+					"title":"含税单价",
+					"width":"200",
+					"class":"lb-sort number",//设置排序和数字number类型
+					"align":"right"
+				},{
+					"title":"订单数量",
+					"width":"200",
+					"align":"right"
+				},{
+					"title":"含税金额",
+					"width":"200",
+					"align":"right",
+					"class":"red lb-sort string",//设置排序和字符串string类型
+				},{
+					"title":"计量单位",
+					"width":"200",
+					"align":"right",
+					"rowspan":false,
+					"class":"lb-sort date",//设置排序和日期date类型
+				}
+			];
+			var col2 = [
+				{
+					"title":"物品编号",//列标题 如果已有表格存在不需要此项
+					"width":"120",//每列的宽度不包含操作列和序号列  如果已有表格存在不需要此项
+					"align":"left",//对齐方式 left center right
+					"rowspan":true, //这列是否存在合并，
+				},{
+					"title":"计量单位",
+					"width":"200",
+					"align":"right",
+					"class":"lb-sort date",//设置排序和日期date类型
+				}
+			];
+			$('#demo1').lbTables({
+				id:'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
+				data:'js/data.json',//json地址url
+				get:{"name":"lb"},//get传递参数
+				height:"200",
+				class:'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
+				th:col,
+				sort:'1',
+				editor:{//控制操作列 
+					"name":"操作",//列名
+					"width":'200',
+					"option":"last",//在列首还是列尾 参数值 first last
+					"value":true, //是否显示操作列 如果为false 则其他参数可不用设置
+					"align":'center',//列对齐方式 left center right
+					"btn":[{//操作列的链接名称及样式
+						"class":"blue1 lb-addtr",//样式 添加的按钮标示class为 lb-addtr
+						"name":"添加"//名称
+					},{
+						"class":"blue1 lb-deltr",//样式 删除的按钮标示class为 lb-deltr
+						"name":"删除"
+					}],
+					"rowspan":false//控制操作列是否合并
+				},pop:{
+					"bool":true,//input点击或输入弹出层
+					"title":["序号","物品编号","物品名称","规格型号","匹配平台类别"],//弹出的表头
+					"class":"lb-table",//弹出的table的样式
+					"height":"100",//高度
+					"widthAll":"500",//宽度
+					"width":["50","40"],//单元格的宽度
+					"popurl":"js/table.json",//url
+					"col":"table-text"//关联的input找到样式
+				},
+				afterLoad:function(){
+					/*var arr = [ 1,2,4,5,6];
+					var width = 0;
+					$('.lb-table').find('tr').each(function(){
+						for(var i =0;i<arr.length;i++){
+							$(this).find('th').eq(i).addClass('col-hide');
+							width += $(this).find('th').eq(i).width();
+							$(this).find('td').eq(i).addClass('col-hide');
+						}
+					});
+					var tableWidth = $('.lb-table').width();
+					$('.lb-table').width(tableWidth - width);*/
+
+					/*var table = new Array();
+					for(var i=0;i<$('#lbTables tr').length;i++){
+						table.push("ID :"+$('#lbTables tr').eq(i).attr('data-id'));
+					};*/
+				}
+			});
+			$('#reloadBtn').bind('click',function(){
+				$('#demo1').lbTables({
+					id:'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
+					data:'js/data3.json',//json地址url
+					get:{"name":"lb"},//get传递参数
+					width:"2540",
+					class:'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
+					th:col,
+					sort:'1',
+					editor:{//控制操作列 
+						"name":"操作",//列名
+						"width":'200',
+						"option":"last",//在列首还是列尾 参数值 first last
+						"value":true, //是否显示操作列 如果为false 则其他参数可不用设置
+						"align":'center',//列对齐方式 left center right
+						"btn":[{//操作列的链接名称及样式
+							"class":"blue1 lb-addtr",//样式 添加的按钮标示class为 lb-addtr
+							"name":"添加"//名称
+						},{
+							"class":"blue1 lb-deltr",//样式 删除的按钮标示class为 lb-deltr
+							"name":"删除"
+						}],
+						"rowspan":false//控制操作列是否合并
+					}
+				});
+			});
+			$('.demo2').lbTables({
+				id:'lbTables2',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
+				data:'js/data2.json',//json地址url
+				get:{"name":"lb"},//get传递参数
+				width:"60%",
+				class:'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
+				th:col2,
+				sort:'1',
+				afterLoad:function(){
+					$('#save').bind('click',function(){
+						$.fn.lbTablesEvent({
+							save:{
+								id:"#lbTables",//保存按钮的id或class
+								list:["wpbh","zlbz","43ew"],//键值名
+								eq:[1,5,6]//取第几列的值
+							}
+						});
+						$.fn.lbTablesEvent({
+							save:{
+								id:"#lbTables2",//保存按钮的id或class
+								list:["wpbh"],//键值名
+								eq:[2]//取第几列的值
+							}
+						});
+					})
+					
+				}
+			});
+		});
+	</script>
+</body>
+</html>
