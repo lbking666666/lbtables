@@ -1,6 +1,6 @@
 # lb.tables表格控件
 
-## 演示页面,[demo](http://1.lbtables.applinzi.com/demo.html,_blank)
+## 演示页面,<a href="http://1.lbtables.applinzi.com/demo.html" target="_blank">demo</a>
 
 ## 使用方法
 #### 1.引入lb.tables.css,jqurey,lb.tables.js; 
