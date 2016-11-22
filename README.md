@@ -167,16 +167,17 @@ pop:{
 ``` bash
 afterLoad:function(){
   $('#save').bind('click',function(){
+    $('body').find('.dataPost').remove();
     $.fn.lbTablesEvent({
       save:{
-        id:"#lbTables",//保存按钮的id或class
+        id:"#lbTables",//保存的表格的id
         list:["wpbh","zlbz","43ew"],//键值名
         eq:[1,5,6]//取第几列的值
       }
     });
     $.fn.lbTablesEvent({
       save:{
-        id:"#lbTables2",//保存按钮的id或class
+        id:"#lbTables2",//保存的表格的id
         list:["wpbh"],//键值名
         eq:[2]//取第几列的值
       }
