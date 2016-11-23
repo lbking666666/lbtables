@@ -32,6 +32,8 @@
 					3.获得序号列数，将序号列插入到thead中
 				三.获得数据插入到tbody中 _tableGetJson
 			**/
+
+			$.isFunction(b.beforeLoad) && b.beforeLoad.call(this);//表格加载之前回调函数
 			function option(c){//添加操作列
 				c.push('<th width="'+b.editor["width"]+'" ');
 				if(b.editor.rowspan == true) c.push('data-span="true"');
@@ -578,6 +580,7 @@
 		sort:'',//序号设置
 		editor:{},//操作列设置
 		pop:{},//弹出设置
+		beforeLoad:null,//加载完成后操作接口
 		afterLoad:null,//加载完成后操作接口
 		events:true
 	}

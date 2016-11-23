@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>lb.tables.js - demo</title>
 	<link type="text/css" href="css/lb.tables.css" rel="stylesheet" />
 	<script src="js/jquery.js"></script>
 	<script src="js/lb.tables.js"></script>
@@ -14,11 +14,6 @@
 	</style>
 </head>
 <body>
-<div class="options"><!--操作表格的按钮 -->
-	<button id="reloadBtn">reolad</button>
-	<button id="save">save</button>
-	<button id="setHide">setHide</button>
-</div>
 <div id="demo1" class="lb-tables-warp"></div><!-- 绑定表格的div -->
 <div class="demo2"></div><!-- 绑定表格的div -->
 	<script type="text/javascript">
@@ -134,6 +129,15 @@
 				  "width":["50","40"],//单元格的宽度
 				  "popurl":"js/table.json",//输入弹出的ajax url
 				  "col":"table-text"//关联的input找到带有table-text的input
+			  },
+			  beforeLoad:function(){
+			  	var optin = [];
+			  	optin.push('<div class="options">',
+			  		'<button id="reloadBtn">reolad</button>',
+			  		'<button id="save">save</button>',
+			  		'<button id="setHide">setHide</button>',
+			  		'</div>');
+			  	$('#demo1').before(optin.join(''));
 			  },
 			  afterLoad:function(){//表格加载完毕之后的操作接口
 			  	//隐藏列设置
