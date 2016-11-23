@@ -32,6 +32,11 @@
 					3.获得序号列数，将序号列插入到thead中
 				三.获得数据插入到tbody中 _tableGetJson
 			**/
+			function option(c){//添加操作列
+				c.push('<th width="'+b.editor["width"]+'" ');
+				if(b.editor.rowspan == true) c.push('data-span="true"');
+				c.push('>'+b.editor.name+'</th>');
+			}
 			if(a.find('table:first').length == 0){
 				//构造table的框架
 				var c = new Array();//创建table数组
@@ -40,12 +45,7 @@
 				if(b["width"]) c.push(' width="'+b["width"]+'"'); //添加宽度
 				if(b["class"]) c.push(' class="'+b["class"]+'"'); //添加样式
 				c.push('><thead><tr>');
-				function option (){//添加操作列
-					c.push('<th width="'+b.editor["width"]+'" ');
-					if(b.editor.rowspan == true) c.push('data-span="true"');
-					c.push('>'+b.editor.name+'</th>');
-				}
-				if(b.editor.value == true && b.editor.option == "first") option();
+				if(b.editor.value == true && b.editor.option == "first") option(c);
 				for(var i = 0; i<b.th.length; i++){
 					c.push('<th ');
 					if(b.th[i]["class"]) c.push('class="'+b.th[i]["class"]+'" ');
@@ -54,7 +54,7 @@
 					c.push('>'+b.th[i].title+'</th>');
 				}
 				if(b.editor.value == true && b.editor.option == "last") {
-					option();
+					option(c);
 					var d = b.sort-1;//获得序号列的排序数
 				}
 				c.push('</tr></thead><tbody id="'+b.id+'"></tbody></table>');
@@ -208,28 +208,29 @@
 			for(var i=0;i<len;i++){
 				var k = keys[b[i]];//获得次数
 				for(var r=0;r<th.length;r++){
-					function rowSpan(){//行合并函数
-						//如果前后两行的data-row相同
-						if( tr.eq(i).attr('data-row') != undefined){
-							if(i>0 && tr.eq(i).attr('data-row') == tr.eq(i-1).attr('data-row')){
-								tr.eq(i).find('td').eq(r).addClass('lb-td-hide');
-								tr.eq(i).addClass('lb-col-group');
-								tr.eq(i).find('td').eq(r).addClass('rowspan');
-								tr.eq(i).find('td.sort').removeClass('sort')
-							}else{
-								tr.eq(i).attr('rowspan',k);
-								tr.eq(i).find('td').eq(r).attr('rowspan',k);
-								if(k>1){
-									tr.eq(i).addClass('lb-col-group');
-									tr.eq(i).find('td').eq(r).addClass('rowspan');
-								}else{
-									tr.eq(i).addClass('lb-col-row');
-								}
-							}
+					
+					//判断是否此列需要合并
+					if(th.eq(r).attr('data-span') == "true") rowSpan(i,r);
+				}
+			}
+			function rowSpan(i,r){//行合并函数
+				//如果前后两行的data-row相同
+				if( tr.eq(i).attr('data-row') != undefined){
+					if(i>0 && tr.eq(i).attr('data-row') == tr.eq(i-1).attr('data-row')){
+						tr.eq(i).find('td').eq(r).addClass('lb-td-hide');
+						tr.eq(i).addClass('lb-col-group');
+						tr.eq(i).find('td').eq(r).addClass('rowspan');
+						tr.eq(i).find('td.sort').removeClass('sort')
+					}else{
+						tr.eq(i).attr('rowspan',k);
+						tr.eq(i).find('td').eq(r).attr('rowspan',k);
+						if(k>1){
+							tr.eq(i).addClass('lb-col-group');
+							tr.eq(i).find('td').eq(r).addClass('rowspan');
+						}else{
+							tr.eq(i).addClass('lb-col-row');
 						}
 					}
-					//判断是否此列需要合并
-					if(th.eq(r).attr('data-span') == "true") rowSpan();
 				}
 			}
 		},
