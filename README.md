@@ -210,7 +210,7 @@ afterLoad:function(){
   <tr>
     <th>class</th>
     <td>"lb-table"</td>
-    <td>table添加样式 如果已有表格存在不需要此项 ie下class必须加上引号</td>
+    <td>table添加样式 如果已有表格存在不需要此项，ie下class必须加上引号</td>
   </tr>
   <tr>
     <th>th</th>
@@ -220,32 +220,32 @@ afterLoad:function(){
           <td colspan="3">以数组形式设置列属性</td>
         </tr>
         <tr>
-          <th>title<th>
+          <th>title</th>
           <td>"全选"</td>
           <td>设置此列列标题</td>
         </tr>
          <tr>
-          <th>width<th>
+          <th>width</th>
           <td>"120"</td>
           <td>设置此列宽度</td>
         </tr>
          <tr>
-          <th>align<th>
+          <th>align</th>
           <td>"left","center","right"</td>
           <td>设置此列对齐方式</td>
         </tr>
          <tr>
-          <th>rowspan<th>
+          <th>rowspan</th>
           <td>true，false"</td>
           <td>设置此列是存在合并</td>
         </tr>
          <tr>
-          <th>class<th>
+          <th>class</th>
           <td>"red lb-sort string"</td>
           <td>设置此列的样式<span style="color:#f00">如需排序功能需添加样式名“lb-sort”及此列的属性“string”,“number”,“date”</span></td>
         </tr>
          <tr>
-          <th>format<th>
+          <th>format</th>
           <td>``` bush
           function(val,item){
 						if(val == ''){//此列返回为如果值为空则返回一个type为text的input
@@ -272,41 +272,96 @@ afterLoad:function(){
           <td colspan="3">设置操作列</td>
         </tr>
         <tr>
-          <th>value<th>
+          <th>value</th>
           <td>true,false</td>
           <td>是否显示操作列 如果为false 则其他参数可不用设置</td>
         </tr>
          <tr>
-          <th>name<th>
+          <th>name</th>
           <td>"操作"</td>
           <td>设置操作列标题</td>
         </tr>
          <tr>
-          <th>option<th>
+          <th>option</th>
           <td>"first","last"</td>
           <td>在列首还是列尾</td>
         </tr>
          <tr>
-          <th>align<th>
+          <th>align</th>
           <td>"left","center","right"</td>
           <td>列对齐方式</td>
         </tr>
          <tr>
-          <th>width<th>
+          <th>width</th>
           <td>"200"</td>
           <td>操作列的宽度</td>
         </tr>
          <tr>
-          <th>rowspan<th>
+          <th>rowspan</th>
           <td>true，false</td>
           <td>设置操作列是否合并</td>
         </tr>
          <tr>
-          <th>btn<th>
+          <th>btn</th>
           <td>[{"class":"blue1 lb-addtr", "name":"添加"},{"class":"blue1 lb-deltr", "name":"删除"},]</td>
           <td>设置操作列的操作按钮的名称及样式,<span style="color:#f00">添加行操作添加样式名“lb-addtr”，删除行操作添加样式名“lb-deltr”</span></td>
         </tr>
       </table>
     </td>
+  </tr>
+  <tr>
+    <th>pop</th>
+    <td colspan="2">
+    	<table>
+	  <tr>
+	    <td colspan="3">设置输入弹出表格</td>
+	  </tr>
+	  <tr>
+	    <th>bool</th>
+	    <td>true,false</td>
+	    <td>是否创建弹出层</td>
+	  </tr>
+	  <tr>
+	    <th>title</th>
+	    <td>["序号","物品编号","物品名称","规格型号","匹配平台类别"]</td>
+	    <td>设置弹出层表格的列标题</td>
+	  </tr>
+	  <tr>
+	    <th>class</th>
+	    <td>“lb-table”</td>
+	    <td>设置弹出的table的样式， ie下class必须加上引号</td>
+	  </tr>
+	  <tr>
+	    <th>height</th>
+	    <td>“200”</td>
+	    <td>设置弹出层的高度，超过此高度出现滚动条</td>
+	  </tr>
+	  <tr>
+	    <th>widthAll</th>
+	    <td>“400”</td>
+	     <td>设置弹出层表格的宽度</td>
+	  </tr>
+	  <tr>
+	    <th>width</th>
+	    <td>["50","40"]</td>
+	     <td>设置弹出层表格的每列的宽度</td>
+	  </tr>
+	  <tr>
+	    <th>popurl</th>
+	    <td>"js/table.json"</td>
+	     <td>弹出层表格ajax的url</td>
+	  </tr>
+	  <tr>
+	    <th>col</th>
+	    <td>"table-text"</td>
+	     <td>关联到主表格的input，找到含有此样式（“table-text”）的input添加弹出层设置</td>
+	  </tr>
+	</table>
+    </td>
+  <tr>
+  <tr>
+      <th>afterLoad</th>
+      <td>function(){}</td>
+      <td>表格加载完毕之后的操作接口</td>
   </tr>
 </table>
