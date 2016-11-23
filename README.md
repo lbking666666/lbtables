@@ -254,7 +254,7 @@ afterLoad:function(){
         </tr>
          <tr>
           <th>format</th>
-          <td>``` bush
+          <td>```bash
           function(val,item){
 						if(val == ''){//此列返回为如果值为空则返回一个type为text的input
 							return '<input type="text" class="table-text" value="'+val+'" placeholder="请输入"/>';
