@@ -20,7 +20,7 @@ var col = [
     "title":"物品编号",//列标题
     "width":"120",//每列的宽度
     "align":"left",//对齐方式
-    "rowspan":true, //这列是否存在合，
+    "rowspan":true, //这列是否存在合并列
     "format":function(val,item){//供用户自定义操作，此列返回为带有span的值
       return '<span>'+val+'</span>'
     }
@@ -39,16 +39,17 @@ var col = [
   },{
     "title":"规格型号",//列标题
     "width":"200",//每列的宽度
-    "align":"left"//对齐方式
+    "align":"left",//对齐方式
+    "rowspan":true//这列是否存在合并列
   },{
     "title":"品质描述",//列标题
     "width":"200",//每列的宽度
-    "align":"left",//对齐方式
-    "rowspan":true,
+    "align":"left"//对齐方式
   },{
     "title":"质量标准",//列标题
     "width":"200",//每列的宽度
-    "align":"left"//对齐方式
+    "align":"left",//对齐方式
+    "rowspan":true//这列是否存在合并列
   },{
     "title":"包装规格",//列标题
     "width":"200",//每列的宽度
@@ -67,12 +68,12 @@ var col = [
     "title":"含税金额",//列标题
     "width":"200",//每列的宽度
     "align":"right",//对齐方式
-    "class":"red lb-sort string",//设置排序和字符串string类型
+    "class":"red lb-sort number",//设置排序和字符串string类型
   },{
-    "title":"计量单位",//列标题
+    "title":"日期",//列标题
     "width":"200",//每列的宽度
     "align":"right",//对齐方式
-    "class":"lb-sort date",//设置排序和日期date类型
+    "class":"lb-sort date"//设置排序和日期date类型
   }
 ];
 ```
