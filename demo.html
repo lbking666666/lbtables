@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="js/jquery.js"></script>
 	<link type="text/css" href="css/lb.tables.css" rel="stylesheet" />
+	<script src="js/jquery.js"></script>
 	<script src="js/lb.tables.js"></script>
 	<script src="js/lb.tables.event.js"></script>
 	<script src="js/perfect-scrollbar.with-mousewheel.min.js"></script>
@@ -14,14 +14,13 @@
 	</style>
 </head>
 <body>
-	<div class="options">
-		<button id="reloadBtn">reolad</button>
-		<button id="search">search</button>
-		<button id="save">save</button>
-		<button id="setHide">setHide</button>
-	</div>
-	<div id="demo1" class="lb-tables-warp"></div>
-	<div class="demo2"></div>
+<div class="options"><!--操作表格的按钮 -->
+	<button id="reloadBtn">reolad</button>
+	<button id="save">save</button>
+	<button id="setHide">setHide</button>
+</div>
+<div id="demo1" class="lb-tables-warp"></div><!-- 绑定表格的div -->
+<div class="demo2"></div><!-- 绑定表格的div -->
 	<script type="text/javascript">
 		$(function(){
 			var col = [
@@ -135,7 +134,7 @@
 				  "width":["50","40"],//单元格的宽度
 				  "popurl":"js/table.json",//输入弹出的ajax url
 				  "col":"table-text"//关联的input找到带有table-text的input
-				},
+			  },
 			  afterLoad:function(){//表格加载完毕之后的操作接口
 			  	//隐藏列设置
 			  	$('#setHide').bind('click',function(){
@@ -151,7 +150,7 @@
 			  }
 			});
 
-			 $('#reloadBtn').bind('click',function(){//页面添加导入按钮
+			$('#reloadBtn').bind('click',function(){//页面添加导入按钮
 		      $('#demo1').lbTables({//对已经加载过数据的表格进行追加
 		        //"id":'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
 		        "data":'js/data3.json',//导入的ajax地址url
@@ -224,8 +223,7 @@
 								"eq":[2]//取第几列的值
 							}
 						});
-					})
-					
+					})	
 				}
 			});
 		});
