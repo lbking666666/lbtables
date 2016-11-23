@@ -1,4 +1,4 @@
-# lb.tables表格控件
+# lb.tables.js
 
 ## 功能
 
@@ -257,7 +257,7 @@ afterLoad:function(){
     <td colspan="2">
       <table>
         <tr>
-          <td colspan="3">以数组形式设置列属性</td>
+          <th colspan="3">以数组形式设置列属性</th>
         </tr>
         <tr>
           <th>title</th>
@@ -304,7 +304,7 @@ afterLoad:function(){
     <td colspan="2">
       <table>
         <tr>
-          <td colspan="3">设置操作列</td>
+          <th colspan="3">设置操作列</th>
         </tr>
         <tr>
           <th>value</th>
@@ -349,7 +349,7 @@ afterLoad:function(){
     <td colspan="2">
     	<table>
 	  <tr>
-	    <td colspan="3">设置输入弹出表格</td>
+	    <th colspan="3">设置输入弹出表格</th>
 	  </tr>
 	  <tr>
 	    <th>bool</th>
