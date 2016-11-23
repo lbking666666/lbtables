@@ -187,6 +187,14 @@ afterLoad:function(){
 
 ## 参数列表
 <table>
+  <thead>
+     <tr>
+       <th>参数名称</th>
+       <th>参数值（举例）</th>
+       <th>参数说明</th>
+    </tr>
+  </thead>
+  <tbody>
   <tr>
     <th>id</th>
     <td>"lbTables"</td>
@@ -364,4 +372,5 @@ afterLoad:function(){
       <td>function(){}</td>
       <td>表格加载完毕之后的操作接口</td>
   </tr>
+  </tbody>
 </table>
