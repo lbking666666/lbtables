@@ -1,10 +1,37 @@
 # lb.tables表格控件
 
+## 功能
+
+- 获得json数据动态加载
+- 自定义样式和宽度的表格及给tbody设置id;
+- 可设置序号列的位置;
+- 每列的对齐方式，宽度，是否合并，点击排序，添加样式，及自定义返回函数;
+- 添加操作列在首列或尾列,操作列的意义为增加或删除每行;
+- 弹出层表格;
+- 可多次加载（导入功能）;
+- 获得表格数据（保存功能）;
+
 ## 演示页面,[demo](http://1.lbtables.applinzi.com/demo.html)
 
 ## 使用方法
-#### 1.引入lb.tables.css,jqurey,lb.tables.js; 
-#### 2.绑定table的容器,例如$('#demo1').lbTables({});
+#### 1.引入lb.tables.css,jqurey.js,lb.tables.js; 
+``` bash
+<link type="text/css" href="css/lb.tables.css" rel="stylesheet" />
+<script src="js/jquery.js"></script>
+<script src="js/lb.tables.js"></script>
+<script src="js/lb.tables.event.js"></script><!-- 使用保存表格时候用到 --->
+<script src="js/perfect-scrollbar.with-mousewheel.min.js"></script> <!--- 引用网上美化滚动条插件 --->
+```
+#### 2.html
+``` bash
+<div class="options"><!--操作表格的按钮 --->
+	<button id="reloadBtn">reolad</button>
+	<button id="save">save</button>
+	<button id="setHide">setHide</button>
+</div>
+<div id="demo1" class="lb-tables-warp"></div><!-- 绑定表格的div --->
+<div class="demo2"></div><!-- 绑定表格的div --->
+```
 #### 3.设置列属性如下
 ``` bash 
 var col = [
@@ -77,7 +104,7 @@ var col = [
   }
 ];
 ```
-#### 4.设置表格属性
+#### 4.设置使用lb.tables.js插件并设置参数
 ``` bash
 $('#demo1').lbTables({//给外容器绑定控件
   "id":'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
@@ -254,15 +281,15 @@ afterLoad:function(){
         </tr>
          <tr>
           <th>format</th>
-          <td>```bash
+          <td>
           function(val,item){
 						if(val == ''){//此列返回为如果值为空则返回一个type为text的input
 							return '<input type="text" class="table-text" value="'+val+'" placeholder="请输入"/>';
 						}else{//否则返回值且后面带有一个自定义的span标签
 							return val+' <span class="bq">终止</span>';
 						}
-          ```</td>
-          <td>设置此列的自定义操作</td>
+          </td>
+          <td>设置此列的回调操作</td>
         </tr>
       </table>
     </td>
@@ -370,7 +397,7 @@ afterLoad:function(){
   <tr>
       <th>afterLoad</th>
       <td>function(){}</td>
-      <td>表格加载完毕之后的操作接口</td>
+      <td>表格加载完毕之后的回调函数</td>
   </tr>
   </tbody>
 </table>
