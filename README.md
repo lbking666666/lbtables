@@ -196,7 +196,7 @@ afterLoad:function(){//表格加载完毕之后的操作接口
 ```
 #### 4.保存数据
 引入lb.tables.event.js
-页面中绑定保存按钮
+页面中绑定保存按钮,成功之后会在body结尾处添加隐藏域
 ``` bash
 afterLoad:function(){
   $('#save').bind('click',function(){
