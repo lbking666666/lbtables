@@ -185,5 +185,128 @@ afterLoad:function(){
 }
 ```
 
-## 结尾
-完整代码参考demo页面
+## 参数列表
+<table>
+  <tr>
+    <th>id</th>
+    <td>"lbTables"</td>
+    <td>table下的tbody添加id   如果已有表格存在不需要此项</td>
+  </tr>
+  <tr>
+    <th>data</th>
+    <td>"js/data.json"</td>
+    <td>ajax的url</td>
+  </tr>
+  <tr>
+    <th>get</th>
+    <td>{"name":"lb"}</td>
+    <td>get传递的参数</td>
+  </tr>
+  <tr>
+    <th>width</th>
+    <td>"100%","1500"</td>
+    <td>表格整体宽度</td>
+  </tr>
+  <tr>
+    <th>class</th>
+    <td>"lb-table"</td>
+    <td>table添加样式 如果已有表格存在不需要此项 ie下class必须加上引号</td>
+  </tr>
+  <tr>
+    <th>th</th>
+    <td colspan="2">
+      <table>
+        <tr>
+          <td colspan="3">以数组形式设置列属性</td>
+        </tr>
+        <tr>
+          <th>title<th>
+          <td>"全选"</td>
+          <td>设置此列列标题</td>
+        </tr>
+         <tr>
+          <th>width<th>
+          <td>"120"</td>
+          <td>设置此列宽度</td>
+        </tr>
+         <tr>
+          <th>align<th>
+          <td>"left","center","right"</td>
+          <td>设置此列对齐方式</td>
+        </tr>
+         <tr>
+          <th>rowspan<th>
+          <td>true，false"</td>
+          <td>设置此列是存在合并</td>
+        </tr>
+         <tr>
+          <th>class<th>
+          <td>"red lb-sort string"</td>
+          <td>设置此列的样式<span style="color:#f00">如需排序功能需添加样式名“lb-sort”及此列的属性“string”,“number”,“date”</span></td>
+        </tr>
+         <tr>
+          <th>format<th>
+          <td>``` bush
+          function(val,item){
+						if(val == ''){//此列返回为如果值为空则返回一个type为text的input
+							return '<input type="text" class="table-text" value="'+val+'" placeholder="请输入"/>';
+						}else{//否则返回值且后面带有一个自定义的span标签
+							return val+' <span class="bq">终止</span>';
+						}
+          ```</td>
+          <td>设置此列的自定义操作</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <th>sort</th>
+    <td>"2"</td>
+    <td>设置序号列的位置</td>
+  </tr>
+  <tr>
+    <th>editor</th>
+    <td colspan="2">
+      <table>
+        <tr>
+          <td colspan="3">设置操作列</td>
+        </tr>
+        <tr>
+          <th>value<th>
+          <td>true,false</td>
+          <td>是否显示操作列 如果为false 则其他参数可不用设置</td>
+        </tr>
+         <tr>
+          <th>name<th>
+          <td>"操作"</td>
+          <td>设置操作列标题</td>
+        </tr>
+         <tr>
+          <th>option<th>
+          <td>"first","last"</td>
+          <td>在列首还是列尾</td>
+        </tr>
+         <tr>
+          <th>align<th>
+          <td>"left","center","right"</td>
+          <td>列对齐方式</td>
+        </tr>
+         <tr>
+          <th>width<th>
+          <td>"200"</td>
+          <td>操作列的宽度</td>
+        </tr>
+         <tr>
+          <th>rowspan<th>
+          <td>true，false</td>
+          <td>设置操作列是否合并</td>
+        </tr>
+         <tr>
+          <th>btn<th>
+          <td>[{"class":"blue1 lb-addtr", "name":"添加"},{"class":"blue1 lb-deltr", "name":"删除"},]</td>
+          <td>设置操作列的操作按钮的名称及样式,<span style="color:#f00">添加行操作添加样式名“lb-addtr”，删除行操作添加样式名“lb-deltr”</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
