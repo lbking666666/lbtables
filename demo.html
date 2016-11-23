@@ -85,7 +85,7 @@
 					"title":"含税金额",//列标题
 					"width":"200",//每列的宽度
 					"align":"right",//对齐方式
-					"class":"red lb-sort number",//设置排序和字符串string类型
+					"class":"red lb-sort number"//设置排序和字符串string类型
 				},{
 					"title":"日期",//列标题
 					"width":"200",//每列的宽度
@@ -107,14 +107,14 @@
 			];
 			var arr = [2,4,5,6];//设置隐藏列
 			$('#demo1').lbTables({//给外容器绑定控件
-			  id:'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
-			  data:'js/data.json',//ajax地址url
-			  get:{"name":"lb"},//get传递参数
-			  width:"1500",//表格整体宽度
-			  class:'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
-			  th:col,//表格每列属性设置
-			  sort:'1',//序号列放入到第n列这里填写n
-			  editor:{//单独控制操作列 
+			  "id":'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
+			  "data":'js/data.json',//ajax地址url
+			  "get":{"name":"lb"},//get传递参数
+			  "width":"1500",//表格整体宽度
+			  "class":'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
+			  "th":col,//表格每列属性设置
+			  "sort":'1',//序号列放入到第n列这里填写n
+			  "editor":{//单独控制操作列 
 			    "value":true, //是否显示操作列 如果为false 则其他参数可不用设置
 			    "name":"操作",//列标题
 			    "width":'200',//列宽度
@@ -126,7 +126,7 @@
 			    }],
 			    "rowspan":false//控制操作列是否合并
 			  },
-			  pop:{
+			  "pop":{
 				  "bool":true,//input点击或输入弹出层
 				  "title":["序号","物品编号","物品名称","规格型号","匹配平台类别"],//弹出的表头
 				  "class":"lb-table",//弹出的table的样式
@@ -153,13 +153,13 @@
 
 			 $('#reloadBtn').bind('click',function(){//页面添加导入按钮
 		      $('#demo1').lbTables({//对已经加载过数据的表格进行追加
-		        //id:'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
-		        data:'js/data3.json',//导入的ajax地址url
-		        get:{"name":"lb"},//get传递参数
-		        //class:'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
-		        th:col,//表格每列属性设置
-		        sort:'1',//序号列放入到第n列这里填写n
-		        editor:{//控制操作列 
+		        //"id":'lbTables',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
+		        "data":'js/data3.json',//导入的ajax地址url
+		        "get":{"name":"lb"},//get传递参数
+		        //"class":'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
+		        "th":col,//表格每列属性设置
+		        "sort":'1',//序号列放入到第n列这里填写n
+		        "editor":{//控制操作列 
 		          "value":true, //是否显示操作列 如果为false 则其他参数可不用设置
 		          "name":"操作",//列标题
 		          "width":'200',//列宽度
@@ -185,14 +185,14 @@
 		      });
 		    });
 			$('.demo2').lbTables({
-				id:'lbTables2',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
-				data:'js/data2.json',//json地址url
-				get:{"name":"lb"},//get传递参数
-				width:"60%",
-				class:'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
-				th:col2,
-				sort:'1', 
-				editor:{//控制操作列 
+				"id":'lbTables2',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
+				"data":'js/data2.json',//json地址url
+				"get":{"name":"lb"},//get传递参数
+				"width":"60%",
+				"class":'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
+				"th":col2,
+				"sort":'1', 
+				"editor":{//控制操作列 
 		          "value":true, //是否显示操作列 如果为false 则其他参数可不用设置
 		          "name":"操作",//列标题
 		          "width":'200',//列宽度
@@ -211,17 +211,17 @@
 					$('#save').bind('click',function(){
 						$('body').find('.dataPost').remove();
 						$.fn.lbTablesEvent({
-							save:{
-								id:"#lbTables",//保存的表格的id
-								list:["wpbh","zlbz","43ew"],//键值名
-								eq:[1,5,6]//取第几列的值
+							"save":{
+								"id":"#lbTables",//保存的表格的id
+								"list":["wpbh","zlbz","43ew"],//键值名
+								"eq":[1,5,6]//取第几列的值
 							}
 						});
 						$.fn.lbTablesEvent({
-							save:{
-								id:"#lbTables2",//保存的表格的id
-								list:["wpbh"],//键值名
-								eq:[2]//取第几列的值
+							"save":{
+								"id":"#lbTables2",//保存的表格的id
+								"list":["wpbh"],//键值名
+								"eq":[2]//取第几列的值
 							}
 						});
 					})

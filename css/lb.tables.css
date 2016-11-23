@@ -15,8 +15,8 @@ table.lb-table td div{ padding:5px; box-sizing: border-box; height: 32px; }
 .table-checkbox{ position: absolute; top:50%; left: 50%; margin-top:-6px; margin-left:-6px}
 .table-text{ width: 100%; border: 0; position: absolute; top:0; left: 0;right:0; bottom:0; background-color:#fcf8e3; }
 .lb-td-hide,.lb-col-hide{display: none;}
-.lb-addtr{ display: inline-block; width: 20px; height: 20px; margin: 2px; text-indent: -999em; background: url(../images/icon-add.png) no-repeat center; }
-.lb-deltr{ display: inline-block; width: 20px; height: 20px; margin: 2px; text-indent: -999em; background: url(../images/icon-del.png) no-repeat center; }
+.lb-addtr{ display: inline-block;  *display:block; width:20px; height: 20px; margin: 2px; text-indent: -999em; background: url(../images/icon-add.png) no-repeat center; }
+.lb-deltr{ display: inline-block;  *display:block;  width: 20px; height: 20px; margin: 2px; text-indent: -999em; background: url(../images/icon-del.png) no-repeat center; }
 .red{ color: #f00;}
 #lbTablePop{ background: #fff; }
 th.lb-sort{ cursor: pointer; background-image: url(../images/sort.png); background-repeat: no-repeat; background-position: right center;}
