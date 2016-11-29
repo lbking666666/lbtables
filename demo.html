@@ -15,7 +15,22 @@
 </head>
 <body>
 <div id="demo1" class="lb-tables-warp"></div><!-- 绑定表格的div -->
-<div class="demo2"></div><!-- 绑定表格的div -->
+<div class="demo2">
+</div><!-- 绑定表格的div -->
+<div class="demo3">
+	<table cellpadding="0" cellspacing="0" width="60%" class="lb-table">
+		<thead>
+			<tr>
+				<th width="200"><input type="checkbox"></th>
+				<th class="sort" data-span="true" width="60"><span class="red">序号</span></th>
+				<th class="lb-sort string" width="50%">物品编号</th>
+				<th width="36%"><select><option>计量单位</option></select></th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+</div>
 	<script type="text/javascript">
 		$(function(){
 			var col = [
@@ -229,6 +244,30 @@
 						});
 					})	
 				}
+			});
+			$('.demo3').lbTables({
+				"id":'lbTables3',//table下的tbody添加id 默认情况下不用设置 如果已有表格存在不需要此项
+				"data":'js/data2.json',//json地址url
+				"get":{"name":"lb"},//get传递参数
+				"width":"60%",
+				"class":'lb-table',//table添加样式 默认情况下不用设置 如果已有表格存在不需要此项
+				"th":col2,
+				"sort":'1', 
+				"editor":{//控制操作列 
+		          "value":true, //是否显示操作列 如果为false 则其他参数可不用设置
+		          "name":"操作",//列标题
+		          "width":'200',//列宽度
+		          "option":"first",//在列首还是列尾 参数值 first last
+		          "align":'center',//列对齐方式 left center right
+		          "btn":[{//操作列的链接名称及样式
+		            "class":"blue1 lb-addtr",//样式 添加的按钮标示class为 lb-addtr
+		            "name":"添加"//名称
+		          },{
+		            "class":"blue1 lb-deltr",//样式 删除的按钮标示class为 lb-deltr
+		            "name":"删除"
+		          }],
+		          "rowspan":false//控制操作列是否合并
+		        }
 			});
 		});
 	</script>
