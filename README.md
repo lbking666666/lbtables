@@ -212,6 +212,27 @@ afterLoad:function(){
 }
 ```
 
+### 5.自定义列头
+
+设置的参数不变
+table的表头手写
+``` bash
+<div class="demo3">
+  <table cellpadding="0" cellspacing="0" width="60%" class="lb-table">
+	<thead>
+	    <tr>
+	        <th width="200"><input type="checkbox"></th>
+		<th class="sort" data-span="true" width="60"><span>序号</span></th>
+		<th class="lb-sort string" width="50%">物品编号</th>
+		<th width="36%">计量单位</th>
+	    </tr>
+	</thead>
+	<tbody>
+	</tbody>
+  </table>
+</div>
+```
+
 ## 参数列表
 <table>
   <thead>
