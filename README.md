@@ -11,7 +11,7 @@
 - 可多次加载（导入功能）;
 - 获得表格数据（保存功能）;
 
-## 演示页面,[demo](http://1.lbtables.applinzi.com/demo.html)
+## 演示页面,[demo](http://xiaoyaoge.me/lbtables/demo.html)
 
 ## 使用方法
 #### 1.引入lb.tables.css,jqurey.js,lb.tables.js; 
